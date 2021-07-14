@@ -1,0 +1,142 @@
+{% block content %}
+    <header class="fixed-top">
+        <div class="row" style="background-color: #2F3345; color: white;">
+            <nav class="navbar navbar-expand-xl navbar-toggleable">
+                <div class="container-fluid">
+                    <p class="navbar-brand ms-lg-3">Salecao</p>
+                    <div id="navbarCollapse" class="collapse navbar-collapse d-flex justify-content-end">
+                        <ul class="navbar-nav navbar-nav ps-auto">
+                            <li class="pe-lg-4">
+                                <button id="btn1" type="button">
+                                    <a href="#home">Home</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn2" type="button">
+                                    <a href="#">About</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn3" type="button">
+                                    <a href="#services">Services</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn4" type="button">
+                                    <a href="#">Portfolio</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn5" type="button">
+                                    <a href="#">Pricing</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn6" type="button">
+                                    <a href="#">Team</a>
+                                </button>
+                            </li>
+                            <li class="pe-lg-4">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" id="dropdownMenuBtn7" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">Drop Down
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuBtn7">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Drop Down 1</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Deep Drop Down &raquo;</a>
+                                            <ul class="dropdown-menu dropdown-submenu">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">Deep Drop Down 1</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">Deep Drop Down 3</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#">Deep Drop Down 3</a>
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Drop Down 2</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Drop Down 3</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Drop Down 4</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="pe-lg-4">
+                                <button id="btn8" type="button"><a href="#contact">Contact</a></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="home" class="row">
+        <div id="carouselExample" class="carousel slide" data-ride="carousel"
+             style="background-color: #2F3345; color: white;">
+            <div class="carousel-inner pt-lg-5">
+                <div class="carousel-item active">
+                    <div class="carousel-caption position-relative w-75 pt-lg-5">
+                        <h2>{{ random_posts.first.title }}</h2>
+                        <p>{{ random_posts.first.content|truncatewords:30 }}</p>
+                        <button id="btn9">Read More</button>
+                    </div>
+                </div>
+                {% for post in random_posts|slice:"1:" %}
+                    <div class="carousel-item">
+                        <div class="carousel-caption position-relative w-75 pt-lg-5">
+                            <h2>{{ post.title }}</h2>
+                            <p>
+                                {{ post.content|truncatewords:30 }}
+                            </p>
+                            <div class="pe-lg-5">
+                                <button id="btn10">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="svg-wave" class="row h-25 d-inline-block">
+        <div class="wave-container" style="padding-right: unset;padding-left: unset; font-size: 1px; height: 270px;">
+            <svg id="wave" style="transform:rotate(180deg);transition: 0.3s;" viewBox="0 0 1440 490"
+                 xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+                        <stop stop-color="rgba(47, 51, 69, 1)" offset="0%"></stop>
+                        <stop stop-color="rgba(47, 51, 69, 1)" offset="100%"></stop>
+                    </linearGradient>
+                </defs>
+                <path style="transform:translate(0, 0px); opacity:1;" fill="url(#sw-gradient-0)"
+                      d="M0,294L80,310.3C160,327,320,359,480,334.8C640,310,800,229,960,212.3C1120,196,1280,245,1440,245C1600,245,1760,196,1920,187.8C2080,180,2240,212,2400,204.2C2560,196,2720,147,2880,155.2C3040,163,3200,229,3360,212.3C3520,196,3680,98,3840,65.3C4000,33,4160,65,4320,89.8C4480,114,4640,131,4800,171.5C4960,212,5120,278,5280,326.7C5440,376,5600,408,5760,359.3C5920,310,6080,180,6240,155.2C6400,131,6560,212,6720,220.5C6880,229,7040,163,7200,122.5C7360,82,7520,65,7680,98C7840,131,8000,212,8160,228.7C8320,245,8480,196,8640,187.8C8800,180,8960,212,9120,196C9280,180,9440,114,9600,106.2C9760,98,9920,147,10080,187.8C10240,229,10400,261,10560,277.7C10720,294,10880,294,11040,294C11200,294,11360,294,11440,294L11520,294L11520,490L11440,490C11360,490,11200,490,11040,490C10880,490,10720,490,10560,490C10400,490,10240,490,10080,490C9920,490,9760,490,9600,490C9440,490,9280,490,9120,490C8960,490,8800,490,8640,490C8480,490,8320,490,8160,490C8000,490,7840,490,7680,490C7520,490,7360,490,7200,490C7040,490,6880,490,6720,490C6560,490,6400,490,6240,490C6080,490,5920,490,5760,490C5600,490,5440,490,5280,490C5120,490,4960,490,4800,490C4640,490,4480,490,4320,490C4160,490,4000,490,3840,490C3680,490,3520,490,3360,490C3200,490,3040,490,2880,490C2720,490,2560,490,2400,490C2240,490,2080,490,1920,490C1760,490,1600,490,1440,490C1280,490,1120,490,960,490C800,490,640,490,480,490C320,490,160,490,80,490L0,490Z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <div id="arrow-up" class="text-end fixed-bottom invisible">
+        <a id="js-top" href="">
+            <img src="https://img.icons8.com/android/48/000000/circled-up.png" alt=""/>
+        </a>
+    </div>
+{% endblock %}

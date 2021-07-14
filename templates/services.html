@@ -1,0 +1,21 @@
+{% block content %}
+    <div id="services" class="row">
+        <div class="row">
+            <h4>Services</h4>
+            <p class="home-subj">What we do offer</p>
+        </div>
+        <div class="row">
+            {% for service in services %}
+                <div class="col-4 p-1">
+                    <div class="card shadow-lg p-3 mb-5 bg-body rounded icon-box aos-init aos-animate"
+                         data-aos="zoom-in-left" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ service.name }}</h5>
+                            <p class="card-text">{{ service.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

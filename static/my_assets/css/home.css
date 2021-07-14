@@ -1,0 +1,39 @@
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #dropdownMenuBtn7, #btn8 {
+    background-color: #2F3345;
+    color: white;
+    border: hidden;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover,
+#dropdownMenuBtn7:hover, #btn8:hover, #btn9:hover, #btn10:hover, #btn11:hover {
+    border: 2px solid #FF5D22;
+    background-color: #FF5D22;
+    border-radius: 25px;
+}
+
+#btn9, #btn10, #btn11 {
+    background-color: #2F3345;
+    color: white;
+    border-color: #FF5D22;
+    border-radius: 25px;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: -7px;
+}
+
+.dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+}
